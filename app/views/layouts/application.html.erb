@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ActionCableChat</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav>
+      <ul>
+        <% if logged_in? %>
+          <li><%= "Welcome back #{current_user.username}" %></li>
+          <li><%= link_to "Rooms", rooms_path %></li>
+          <li><%= link_to "Logout", session_path(current_user), method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", new_session_path %></li>
+          <li><%= link_to "Signup", new_user_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+
+    <% if flash %>
+      <% flash.each do |type, message| %>
+        <div class="flash">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <div class="errors">
+          <%= error %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

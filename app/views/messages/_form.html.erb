@@ -1,0 +1,10 @@
+<%= form_for message do |f| %>
+
+  <%= f.hidden_field :room_id, value: room.id %>
+
+  <%= f.label :content, "enter message here" %>
+  <%= f.text_field :content, autocomplete: :off %>
+
+<% end %>
+
+

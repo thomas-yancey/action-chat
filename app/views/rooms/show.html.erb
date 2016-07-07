@@ -1,0 +1,15 @@
+<h3><%= @room.name %></h3>
+
+<ul id="users-list">
+  <% @users.each do |user| %>
+      <li>
+        <%= user.username %>
+        <%= image_tag "green_dot.png", id: "#{user.id}-status"%>
+      </li>
+  <% end %>
+</ul>
+
+<%= link_to "invite people", room_memberships_path(@room) %>
+<%= render @messages %>
+
+<%= render partial: "/messages/form", locals: {room: @room, message: @message} %>
