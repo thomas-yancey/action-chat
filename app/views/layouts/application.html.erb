@@ -3,42 +3,54 @@
   <head>
     <title>ActionCableChat</title>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
 
-    <nav>
-      <ul>
-        <% if logged_in? %>
-          <li><%= "Welcome back #{current_user.username}" %></li>
-          <li><%= link_to "Rooms", rooms_path %></li>
-          <li><%= link_to "Logout", session_path(current_user), method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Login", new_session_path %></li>
-          <li><%= link_to "Signup", new_user_path %></li>
-        <% end %>
-      </ul>
+    <nav class="ui fixed inverted main menu">
+      <div class="ui container">
+        <div class="item"><%= link_to "Action Cable Chat", root_path %></div>
+        <div class="right menu">
+          <% if logged_in? %>
+            <div class="item remove"><%= "Welcome back #{current_user.username}" %></div>
+            <div class="item"><%= link_to "Rooms", rooms_path %></div>
+            <div class="item"><%= link_to "Logout", session_path(current_user), method: :delete %></div>
+          <% else %>
+            <div class="item"><%= link_to "Login", new_session_path %></div>
+            <div class="item"><%= link_to "Signup", new_user_path %></div>
+          <% end %>
+        </div>
+      </div>
     </nav>
 
-    <% if flash %>
-      <% flash.each do |type, message| %>
-        <div class="flash">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
 
-    <% if @errors %>
-      <% @errors.each do |error| %>
-        <div class="errors">
-          <%= error %>
-        </div>
-      <% end %>
-    <% end %>
+    <div class="page-content">
+      <div class="ui container">
+        <% if flash %>
+          <% flash.each do |type, message| %>
+            <div class="ui negative message">
+              <%= message %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if @errors %>
+          <% @errors.each do |error| %>
+            <div class="ui negative message">
+              <%= error %>
+            </div>
+          <% end %>
+        <% end %>
 
     <%= yield %>
+
+    </div>
+  </div>
+
   </body>
 </html>

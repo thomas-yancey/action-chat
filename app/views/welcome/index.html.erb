@@ -1,2 +1,17 @@
-<h1>Action Cable Chat</h1>
-<p>Example of how to quickly integrate websockets in rails 5 using action cable.</p>
+
+<div class="ui masthead center aligned segment">
+    <h1 class="ui huge header">Action Cable Chat
+      <div class="sub header">
+        Example of how to quickly integrate websockets in rails 5 using action cable.
+      </div>
+    </h1>
+
+  <% if logged_in? %>
+    <%= link_to "Rooms", rooms_path, class: "ui button primary" %>
+  <% else %>
+    <%= link_to "Login", new_session_path, class: "ui button" %>
+    <%= link_to "Signup", new_user_path, class: "ui button primary" %>
+  <% end %>
+  </div>
+</div>
+

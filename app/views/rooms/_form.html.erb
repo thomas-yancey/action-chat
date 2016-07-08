@@ -1,8 +1,11 @@
-<%= form_for room do |f| %>
+<%= form_for room, html: {class: "ui form"} do |f| %>
 
-  <%= f.label :name, "Create new room" %>
-  <%= f.text_field :name %>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "create new room" %>
+  </div>
 
-  <%= f.submit "Create room" %>
+  <div class="field">
+    <%= f.submit "Create room", class: "ui button" %>
+  </div>
 
 <% end %>

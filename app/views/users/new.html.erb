@@ -1,10 +1,17 @@
-<%= form_for @user do |f| %>
+<%= form_for @user, html: {class: "ui form"} do |f| %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
 
-  <%= f.submit "Login" %>
+  <div class="field">
+    <%= f.submit "sign up", class: "ui button" %>
+  </div>
+
 <% end %>

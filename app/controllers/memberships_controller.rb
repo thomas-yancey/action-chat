@@ -1,4 +1,5 @@
 class MembershipsController < ApplicationController
+  before_action :verify_logged_in
 
   def index
     @room = Room.find(params[:room_id])

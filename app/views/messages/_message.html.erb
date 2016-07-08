@@ -1,5 +1,11 @@
-<p>
-  <small>(<%= message.created_at.strftime("%I:%M%p")%> - UTC )</small>
-  <b><%= message.user.username %></b>
-  <%= message.content %>
-</p>
+<div class="comment">
+  <div class="content">
+    <a class="author"><%= message.user.username %></a>
+    <div class="metadata">
+      <span class="date">(<%= message.created_at.strftime("%I:%M%p")%> - UTC )</span>
+    </div>
+    <div class="text">
+      <%= message.content %>
+    </div>
+  </div>
+</div>

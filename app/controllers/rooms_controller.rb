@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :verify_logged_in
 
   def show
     @room = Room.find(params[:id])
@@ -6,7 +7,7 @@ class RoomsController < ApplicationController
 
     @messages = @room.messages.order(id: :desc).limit(500).reverse
     @message = Message.new
-    @users = @room.users
+    @memberships = @room.memberships
   end
 
   def index

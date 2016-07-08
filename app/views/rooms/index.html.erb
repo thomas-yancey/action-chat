@@ -1,9 +1,10 @@
-<h2>Your Chatrooms</h2>
+<h2 class="ui center aligned header">Your Chatrooms</h2>
 
 <%= render partial: "/rooms/form", locals: {room: @room} %>
 
+<div class="ui divider"></div>
 
 <div class="rooms-list">
+  <div class="ui segments">
   <%= render @rooms %>
 </div>
-

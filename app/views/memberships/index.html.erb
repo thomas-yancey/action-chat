@@ -1,18 +1,44 @@
-  <h3><%= link_to "go to #{@room.name}",room_path(@room) %></h3>
-  <h2 >Add members to <%=@room.name%></h2>
-  <h3>Members</h3>
+<div class="ui stackable one column grid center aligned">
+  <h2 >Add members to <%=@room.name%>
+  <div class="sub header"><%= link_to "go to #{@room.name}",room_path(@room) %>
+  </h2>
+</div>
 
-  <ul id="member-list">
-    <% @memberships.each do |member| %>
-      <li><%= member.name %></li>
-    <% end %>
-  </ul>
+<div class="ui stackable two column grid">
 
-<ul id="add-users">
-<% @users.each do |user| %>
-  <li>
-    <%= user.username %>
-    <input type="checkbox" id="<%= "#{user.id}-add-member" %>"/>
-  </li>
-<% end %>
-</ul>
+  <div class="column">
+    <div class="ui segment">
+      <h3>Current Members</h3>
+
+      <ul id="member-list">
+        <% @memberships.each do |member| %>
+          <div class="ui segment">
+            <li><%= member.name %></li>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="ui segment">
+    <h3>Members to add</h3>
+    <ul id="add-users">
+
+      <% @users.each do |user| %>
+        <li>
+          <div class="ui segment">
+            <%= user.username %>
+            <input type="checkbox" id="<%= "#{user.id}-add-member" %>"/>
+          </div>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+

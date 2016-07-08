@@ -1,15 +1,33 @@
-<h3><%= @room.name %></h3>
+<div class="ui four column stackable grid">
+  <div class="four wide column">
+    <div class="ui segment">
+    <h3><%= @room.name %>
+      <div class="sub header">members</div>
+    </h3>
+      <ul id="users-list">
+        <% @memberships.each do |member| %>
+            <li>
+              <%= member.name %>
+              <% if member.online %>
+                <%= image_tag "green_dot.png", id: "#{member.user_id}-status", class: "active" %>
+              <% else %>
+                <%= image_tag "green_dot.png", id: "#{member.user_id}-status", class: "inactive" %>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
+      <%= link_to "invite people", room_memberships_path(@room) %>
+    </div>
+  </div>
+  <div class="twelve wide column">
 
-<ul id="users-list">
-  <% @users.each do |user| %>
-      <li>
-        <%= user.username %>
-        <%= image_tag "green_dot.png", id: "#{user.id}-status"%>
-      </li>
-  <% end %>
-</ul>
+    <div class="ui segment">
+      <div class="ui comments">
+        <%= render @messages %>
+      </div>
 
-<%= link_to "invite people", room_memberships_path(@room) %>
-<%= render @messages %>
+      <%= render partial: "/messages/form", locals: {room: @room, message: @message} %>
+    </div>
+  </div>
 
-<%= render partial: "/messages/form", locals: {room: @room, message: @message} %>
+</div>

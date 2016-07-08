@@ -1,0 +1,29 @@
+.active {
+  display: ;
+}
+
+.inactive {
+  display: none;
+}
+
+.page-content {
+  padding-top: 80px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+@media only screen and (max-width: 490px) {
+      .item.remove {
+        display: none !important;
+      }
+}
+
+.input {
+  width: 100%;
+}
