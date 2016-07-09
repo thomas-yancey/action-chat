@@ -7,13 +7,13 @@ App.appearance = App.cable.subscriptions.create({
     if (membership.online === true){
       $(userImgIdConstructor(membership)).attr('class', 'active');
       var enter = $('#fixed-flash-enter')
-      enter.text(membership.user_id + " has entered")
+      enter.text(membership.username + " has entered")
       fadeInOut(enter);
     };
     if (membership.online === false){
       $(userImgIdConstructor(membership)).attr('class', 'inactive');
       var leave = $('#fixed-flash-leave')
-      leave.text(membership.user_id + " has left")
+      leave.text(membership.username + " has left")
       fadeInOut(leave);
     };
   }

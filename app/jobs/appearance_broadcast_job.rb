@@ -8,7 +8,9 @@ class AppearanceBroadcastJob < ApplicationJob
   private
 
   def render_json(membership)
-    ApplicationController.renderer.render(json: membership)
+    member_hash = membership.as_json
+    member_hash["username"] = membership.name
+    ApplicationController.renderer.render(json: member_hash)
   end
 
 end
