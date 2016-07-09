@@ -51,5 +51,6 @@ li {
 @media screen and (min-width: 768px) {
   #members-list {
     position: fixed;
+    width: 170px;
   }
 }

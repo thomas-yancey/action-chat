@@ -2,6 +2,7 @@ $( document ).ready(function() {
 
   if ($('#message-container').length > 0){
     scrollBottom();
+  };
 
   $('#add-users input').on ('click', function(){
     var userId = $(this).attr("id").split("-")[0];
