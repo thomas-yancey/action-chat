@@ -43,3 +43,13 @@ li {
   z-index: 98;
   display: none;
 }
+
+#members-list {
+  z-index: 1;
+}
+
+@media screen and (min-width: 768px) {
+  #members-list {
+    position: fixed;
+  }
+}
