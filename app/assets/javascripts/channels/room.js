@@ -3,5 +3,6 @@ App.room = App.cable.subscriptions.create({
  }, {
   received: function(data) {
     $('.comments').append(data.message);
+    scrollBottom();
   }
 });

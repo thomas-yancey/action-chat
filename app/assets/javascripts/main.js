@@ -1,4 +1,9 @@
 $( document ).ready(function() {
+
+  if ($('#message-container').length > 0){
+    scrollBottom();
+  };
+
   $('#add-users input').on ('click', function(){
     var userId = $(this).attr("id").split("-")[0];
     var data = {user_id: userId};
@@ -33,4 +38,8 @@ $('#new_message').on ('submit', function(){
 
 var memberAppendBuilder = function(userData){
    return "<div class='ui segment'><li>" + userData.username + "</li></div>";
+};
+
+var scrollBottom = function(){
+  $('html, body').animate({scrollTop: $(document).height()}, 2000);
 };
