@@ -27,3 +27,19 @@ li {
 .input {
   width: 100%;
 }
+
+#fixed-flash-enter {
+  display: none;
+  position: fixed;
+  top: 42px;
+  width: inherit;
+  z-index: 99;
+}
+
+#fixed-flash-leave {
+  position: fixed;
+  top: 40px;
+  width: inherit;
+  z-index: 98;
+  display: none;
+}
