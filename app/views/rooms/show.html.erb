@@ -12,16 +12,7 @@
       <div class="sub header">members</div>
     </h3>
       <ul id="users-list">
-        <% @memberships.each do |member| %>
-            <li>
-              <%= member.name %>
-              <% if member.online %>
-                <%= image_tag "green_dot.png", id: "#{member.user_id}-status", class: "active" %>
-              <% else %>
-                <%= image_tag "green_dot.png", id: "#{member.user_id}-status", class: "inactive" %>
-              <% end %>
-            </li>
-        <% end %>
+        <%= render @memberships %>
       </ul>
       <%= link_to "invite people", room_memberships_path(@room) %>
     </div>
