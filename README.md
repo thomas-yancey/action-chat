@@ -1,24 +1,3 @@
-# README
+##Action Cable Chat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app is a simple implementation of a chat app built in rails 5. It takes advantage of action cable to implement websockets and allows for realtime chat and updates. I wrote two blog posts to go through the development process which you can find at [blog]{blog.tomyancey.me}
